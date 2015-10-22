@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/eliza.css" />
+		<link rel="stylesheet" href="ratings/rating.css" type="text/css" media="screen" title="Rating CSS">
+		
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.mobile-1.4.0-rc.1.js"></script>
+		<!-- <script src="js/jquery.responsiveImg.js"></script> -->
+		<script src="js/eliza.js"></script>
+		<script type="text/javascript" src="ratings/rating.js"></script>
+
+	</head>
+
+	<body>
+		<!--============================================
+			S T A R T   O F  S P L A S H   S C R E E N
+		==============================================-->
+		<div data-role="page" id="pgSplash">
+			<div data-role="content">
+				<img src="css/logo.png" id="imgLogo">
+			</div>
+		</div>
+		<!--============================================
+			S T A R T   O F  S P L A S H   S C R E E N
+		==============================================-->
+
+
+		<!--==================================================
+				S T A R T   O F   L O G I N   P A G E 
+		===================================================-->
+		<div data-role="page" id="pageLogin" data-theme="b">
+
+			<div data-role="header" data-position="fixed" >
+				<h1><img src="css/logo.png" id="logo"></h1>
+			</div>
+
+			<div data-role="content">
+				<center><h3>LOGIN</h3></center>
+				<form id="frmLogin">
+					<input type="text" placeholder="Enter your Username." name="txtUsername" id="txtUsername"/>
+					<input type="password" placeholder="Enter your Password." name="txtPassword" id="txtPassword"/>
+				</form>
+					
+				<button id="btnLogin" data-theme="a">LOGIN</button>
+				<a data-role ="button" id="btnSignup" data-theme="a" href="#pageSignUp"/> SIGN UP </a>
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+				<h1> </h1>
+			</div>
+
+		</div>
+		<!--==================================================
+				E N D   O F   L O G I N   P A G E 
+		===================================================-->
+
+
+		<!--==================================================
+				S T A R T   O F   S I G N U P   P A G E 
+		===================================================-->
+		<div data-role="page" data-theme="b" id="pageSignUp">
+			<div data-role="header" data-position="fixed">
+				<h1><img src="css/logo.png" id="logo"></h1>
+			</div>
+
+			<div data-role="content">
+				<center><h3>SIGN UP</h3></center>
+				<form id="frmSignUp" name="frmSignUp" enctype="multipart/form-data">
+					
+					<input type="text" name="txtSignUser" id="txtSignUser" placeholder="Enter your Username" required/>
+					<input type="email" name="txtSignEmail" id="txtSignEmail" placeholder="Enter your Email" required/>
+
+					<input type="password" name="txtSignPass" id="txtSignPass" placeholder="Enter your Password" required pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="form.txtSignPass2.pattern=this.value;"  />
+
+					<input type="password" name="txtSignPass2" id="txtSignPass2" placeholder="Re-Enter your Password" required pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}" />
+					<input type="file" name="file" id="file" accept="image/*"/>
+					<img id="preview" src="" />
+					<input type="submit" id="btnSignUp" value="SIGN UP" data-theme="a"/>
+				</form>
+					<a data-role="button" href="#pageLogin" data-thme="a">LOGIN</a>
+				
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+				<h1> </h1>
+			</div>
+		</div>
+		<!--==================================================
+				E N D   O F   S I G N U P   P A G E 
+		===================================================-->
+
+		
+		<!--==================================================
+				S T A R T   O F   H O M E   P A G E 
+		===================================================-->
+		<div data-role="page" id="pageIndex" data-theme="b" data-transition="slide">
+
+			<div data-role="header" data-position="fixed" >
+				<h1><img src="css/logo.png" id="logo"></h1>
+
+				
+
+				<a href="index.html" data-role="button" data-iconpos="notext" id="btnLogout" data-inline="true"><span class="fa fa-power-off"></span></a>
+
+				<div data-role="navbar">
+					<ul>
+				      <li><a href="#pageIndex"><span class="fa fa-home fa-pull-center fa-2x"></span></a></li>
+
+				      
+
+				      <li><a href="#popSell"><span class="fa fa-plus-circle fa-pull-center fa-2x"></span></a></li>
+
+				      <li><a href="#divProfile"><span class="fa fa-user fa-pull-center fa-2x"></span></a></li>
+				  	</ul>
+				</div>
+			</div>
+
+			<div data-role="content">
+				<center><h3>Browse Item</h3></center>
+				<div data-role="fieldcontain">
+				    <fieldset data-role="controlgroup" data-theme="c">
+					    <a href="#pageMobile" class="ui-btn ui-corner-all"><span class="fa fa-mobile fa-pull-right"></span>
+					    	<span class="fa fa-pull-left"> Mobile Phone & Tablets</span></a>
+
+					    <a href="#pgcomlap" class="ui-btn ui-corner-all"><span class="fa fa-laptop fa-pull-right"></span>
+					    	<span class="fa fa-pull-left">Computers & Laptops</span></a>
+
+					    <a href="#pgShoes" class="ui-btn ui-corner-all"><span class="fa fa-suitcase fa-pull-right"></span>
+					    	<span class="fa fa-pull-left">Shoes & Bags</span></a>
+
+					    <a href="#pgAppliances" class="ui-btn ui-corner-all"><span class="fa fa-television fa-pull-right"></span>
+					    	<span class="fa fa-pull-left">Appliances</span></a>
+
+					    <a href="#pgwatches" class="ui-btn ui-corner-all"><span class="fa fa-diamond fa-pull-right"></span>
+					    	<span class="fa fa-pull-left">Watches & Jem</span></a>
+
+					    <a href="#pgcameras" class="ui-btn ui-corner-all"><span class="fa fa-camera fa-pull-right"></span>
+					    	<span class="fa fa-pull-left">Cameras</span></a>
+
+					    <a href="#pgclothing" class="ui-btn ui-corner-all"><span class="fa fa-female fa-pull-right"></span>
+					    	<span class="fa fa-pull-left">Clothing</span></a>
+
+					    <a href="#pgbooks" class="ui-btn ui-corner-all"><span class="fa fa-book fa-pull-right"></span>
+					    <span class="fa fa-pull-left">Books</span></a>
+
+					    <a href="#pgfoods" class="ui-btn ui-corner-all"><span class="fa fa-coffee fa-pull-right"></span>
+					    	<span class="fa fa-pull-left">Foods</span></a>
+
+					    <a href="#pgothers" class="ui-btn ui-corner-all">
+					    	<span class="fa fa-pull-left">Others</span></a>
+				    </fieldset>
+				</div>
+			</div>
+		    
+
+			<div data-role="footer" data-position="fixed">
+					<h1> </h1>
+			</div>
+
+		</div>
+		<!--==================================================
+				E N D  O F   H O M E   P A G E 
+		===================================================-->
+
+
+
+		<!--==================================================
+				S T A R T   O F   S E A R C H   P A G E 
+		===================================================-->
+		<div data-role="page" id="pgsSearch" data-theme="b">
+
+			<div data-role="header" data-position="fixed">
+				<h1><img src="css/logo.png" id="logo"></h1>
+			</div>
+
+			<div data-role="content">
+				<h3>Search Item</h3>
+				<input type="search"/>
+				<button data-theme="a">SEARCH</button>
+				<a data-role="button" data-theme="a" href="#pageIndex">CANCEL</a>
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+				<h1> </h1>
+			</div>
+
+		</div>
+		<!--==================================================
+				E N D   O F   S E A R C H   P A G E 
+		===================================================-->
+
+
+
+		<!--==================================================
+				S T A R T   O F   P R O F I L E   P A G E 
+		===================================================-->
+		<div data-role="page" id="divProfile"  data-theme="b" data-transition="slide">
+			<div data-role="header" data-position="fixed">
+				
+
+				
+
+				<h1><img src="css/logo.png" id="logo"></h1>
+
+				<a href="index.html" data-role="button" data-iconpos="notext" id="btnLogout" data-inline="true"><span class="fa fa-power-off"></span></a>
+
+
+				<div data-role="navbar">
+					<ul>
+				      <li><a href="#pageIndex"><span class="fa fa-home fa-pull-center fa-2x"></span></a></li>
+
+				      
+
+				      <li><a href="#popSell"><span class="fa fa-plus-circle fa-pull-center fa-2x"></span></a></li>
+
+				      <li><a href="#"><span class="fa fa-user fa-pull-center fa-2x"></span></a></li>
+				  	</ul>
+				</div>
+
+			</div>
+
+			<div data-role="content">
+				<div id="myProfile">
+				</div>
+
+				<!--				
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<section id="UserRating">
+							<input type="radio" name="rating" class="rating" value="1" />
+							<input type="radio" name="rating" class="rating" value="2" />
+							<input type="radio" name="rating" class="rating" value="3" />
+							<input type="radio" name="rating" class="rating" value="4" />
+							<input type="radio" name="rating" class="rating" value="5" />
+						</section>
+					</div>
+					<div  id="divRateButtonHolder" class="ui-block-b">
+						
+					</div>
+				 -->
+
+					<script>
+					function rate(u){
+						alert (u);
+
+					}
+					$(document).ready(function(){
+						$.ajax({
+							type : 'POST',
+							url : 'http://bayansell.esy.es/bayansell/checkuser.php',
+							data : {
+								sql : "SELECT * FROM tbl_user WHERE fld_username = '" + localStorage.getItem('localUser') + "'"
+							},
+							dataType : 'html',
+							success : function(eliza){
+								if(eliza){
+									$("#divRateButtonHolder").html(eliza);
+								}
+							}
+						});
+					});
+					</script>
+
+				</div>
+				<style>
+					#btnRateUser{
+						width : 100%;
+					}
+					}
+				</style>
+				
+				
+				<div id="divBuyItem"></div>
+
+				<center><h3>Sold Item</h3></center>
+				<div id="divSellItem"></div>
+
+				<script>
+				$(document).ready(function(){
+					var user = localStorage.getItem('localUser');
+					/*=================================
+						FUNCTION FOR BUYITEM VIEW
+					==================================*/
+					$.ajax({
+						type: 'GET',
+						url:'http://bayansell.esy.es/bayansell/BuyItem.php',
+						dataType:'html',
+						data:"user="+user,
+						success: function(data){
+							if(data){
+								$('#divBuyItem').html(data);
+							}
+						}
+					});
+					/*=================================
+						FUNCTION FOR BUYITEM VIEW
+					==================================*/
+
+
+					/*=================================
+						FUNCTION FOR BUYITEM VIEW
+					==================================*/
+					$.ajax({
+						type: 'GET',
+						url:'http://bayansell.esy.es/bayansell/SellItem.php',
+						dataType:'html',
+						data:"user="+user,
+						success: function(data){
+							if(data){
+								$('#divSellItem').html(data);
+							}
+						}
+					});
+					/*=================================
+						FUNCTION FOR BUYITEM VIEW
+					==================================*/
+
+
+
+
+
+				});
+				</script>
+				
+
+				
+
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+				<h1> </h1>
+			</div>
+		</div>
+		<!--==================================================
+				END   O F   P R O F I L E   P A G E 
+		===================================================-->
+		
+
+		<!--==================================================
+				S T A R T   O F   A D D  I T E M    P A G E 
+		===================================================-->
+		<div data-role="page" id="popSell" data-theme="b" data-transition="slide">
+			<div data-role="header" data-position="fixed">
+				<h1><img src="css/logo.png" id="logo"></h1>
+
+				
+
+				<a href="index.html" data-role="button" data-iconpos="notext" id="btnLogout" data-inline="true"><span class="fa fa-power-off"></span></a>
+
+				<div data-role="navbar">
+					<ul>
+				      <li><a href="#pageIndex"><span class="fa fa-home fa-pull-center fa-2x"></span></a></li>
+
+				      
+
+				      <li><a href="#"><span class="fa fa-plus-circle fa-pull-center fa-2x"></span></a></li>
+
+				      <li><a href="#divProfile"><span class="fa fa-user fa-pull-center fa-2x"></span></a></li>
+				  	</ul>
+				</div>
+			</div>
+
+			<div data-role="content">
+				<form id="frmMobile" enctype="multipart/form-data">
+					<center>Add Item</center>
+					<input type="hidden" id="para" name="para">
+					<label> Select Image </label>
+					<input type="file" name="image" id="image"  accept="image/*"/>
+					<img src="" id="itempreview">
+					<input type="text" name="txtname" placeholder="Enter name of item."/>
+					<textarea  name="txtcondition" style="resize:none;" width="100%" placeholder="Write a condition of item . . ." ></textarea>
+							
+					<select name="optCategory" id="optCategory">
+						<option selected disabled> <b> -SELECT CATEGORY- </b> </option>
+						<option value="Mobile Phone & Tablets">Mobile Phone & Tablets</option>
+						<option value="Computers & Laptops">Computers & Laptops</option>
+						<option value="Shoes & Bags">Shoes & Bags</option>
+						<option value="Appliances">Appliances</option>
+						<option value="Watches & Jewerly">Watches & Jewerly</option>
+						<option value="Cameras">Cameras</option>
+						<option value="Clothing">Clothing</option>
+						<option value="Books">Books</option>
+						<option value="Foods">Foods</option>
+						<option value="Others">Others</option>
+					</select>
+					<input type="submit" data-theme="a" value="SELL"/>
+				</form>	
+			</div>
+
+
+
+			<div data-role="footer" data-position="fixed">
+				<h1> </h1>
+			</div>
+
+		</div>
+		<!--==================================================
+				E N D   O F   A D D  I T E M    P A G E 
+		===================================================-->
+
+
+
+		<!--==================================================
+				S T A R T   O F   M A P   P A G E 
+		===================================================-->
+		<div data-role="page" id="Map" data-theme="b" data-transition="slide">
+			<div data-role="header" data-position="fixed">
+				<h1><img src="css/logo.png" id="logo"></h1>
+
+				
+
+				<a href="index.html" data-role="button" data-iconpos="notext" id="btnLogout" data-inline="true"><span class="fa fa-power-off"></span></a>
+
+				<div data-role="navbar">
+					<ul>
+				       <li><a href="#pageIndex"><span class="fa fa-home fa-pull-center fa-2x"></span></a></li>
+
+				      <li><a href="#"><span class="fa fa-list fa-pull-center fa-2x"></span></a></li>
+
+				      <li><a href="#popSell"><span class="fa fa-plus-circle fa-pull-center fa-2x"></span></a></li>
+
+				      <li><a href="#divProfile"><span class="fa fa-user fa-pull-center fa-2x"></span></a></li>
+				  	</ul>
+				</div>
+			</div>
+
+			<div data-role="content">
+
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+				<h1> </h1>
+			</div>
+
+		</div>
+		<!--==================================================
+				E N D   O F   M A P   P A G E 
+		===================================================-->
+
+
+
+		<!--===========================================================================================
+							S T A R T    O F   C A T E G O R Y   P A G E    S E C T I O N
+		=========================================================================================== -->
+			
+		<!--==================================================
+				S T A R T   O F   MOBILE AND TABLET PAGE
+		===================================================-->
+		<div data-role="page" id="pageMobile" data-theme="b">
+
+			<div data-role="header" data-position="fixed" >
+				<h1><img src="css/logo.png" id="logo"></h1>
+				<a href="#pageIndex" data-role="button" data-iconpos="notext" data-inline="true">
+				<span class="fa fa-backward"></span></a>
+			</div>
+
+			<div data-role="content">
+				<center><h3> Mobile and Tablet </h3></center>
+				<div id="divItem"></div>
+				
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<h1> </h1>		
+			</div>
+			</div>
+
+		</div>
+		<!--==================================================
+				E N D   O F   MOBILE AND TABLET PAGE
+		===================================================-->
+
+
+
+		<!--==================================================
+				S T A R T   O F  COMPUTER AND LAPTOP PAGE
+		===================================================-->
+		<div data-role="page" id="pgcomlap" data-theme="b">
+
+			<div data-role="header" data-position="fixed" >
+				<h1><img src="css/logo.png" id="logo"></h1>
+				<a href="#pageIndex" data-role="button" data-iconpos="notext" data-inline="true">
+				<span class="fa fa-backward"></span></a>
+			</div>
+
+			<div data-role="content">
+				<center><h3>Computers and Laptops</h3></center>
+				<div id="divComLap"></div>
+				
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<h1> </h1>
+			</div>
+			</div>
+
+		</div>
+		<!--==================================================
+				E N D   O F   COMPUTER AND LAPTOP PAGE
+		===================================================-->
+
+
+
+		<!--==================================================
+				S T A R T   O F SHOES AND BAGS 
+		===================================================-->
+		<div data-role="page" id="pgShoes" data-theme="b">
+
+			<div data-role="header" data-position="fixed" >
+				<h1><img src="css/logo.png" id="logo"></h1>
+				<a href="#pageIndex" data-role="button" data-iconpos="notext" data-inline="true">
+				<span class="fa fa-backward"></span></a>
+			</div>
+
+			<div data-role="content">
+				<center><h3>Shoes and Bags</h3></center>
+				<div id="divShoes"></div>
+				
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<h1> </h1>
+			</div>
+			</div>
+
+		</div>
+		<!--==================================================
+				E N D   O F SHOES AND BAGS 
+		===================================================-->
+
+
+
+		<!--==================================================
+				S T A R T   O F APPLIANCES
+		===================================================-->
+		<div data-role="page" id="pgAppliances" data-theme="b">
+
+			<div data-role="header" data-position="fixed" >
+				<h1><img src="css/logo.png" id="logo"></h1>
+				<a href="#pageIndex" data-role="button" data-iconpos="notext" data-inline="true">
+				<span class="fa fa-backward"></span></a>
+			</div>
+
+			<div data-role="content">
+				<center><h3>Appliances</h3></center>
+				<div id="divAppliances"></div>
+				
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<h1> </h1>
+			</div>
+			</div>
+
+		</div>
+		<!--==================================================
+				E N D   O F APPLIANCES
+		===================================================-->
+
+
+
+		<!--==================================================
+				S T A R T   O F WATCHES AND JEWERLY
+		===================================================-->
+		<div data-role="page" id="pgwatches" data-theme="b">
+
+			<div data-role="header" data-position="fixed" >
+				<h1><img src="css/logo.png" id="logo"></h1>
+				<a href="#pageIndex" data-role="button" data-iconpos="notext" data-inline="true">
+				<span class="fa fa-backward"></span></a>
+			</div>
+
+			<div data-role="content">
+				<center><h3>Watches and Jewerly</h3></center>
+				<div id="divwatches"></div>
+				
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<h1> </h1>
+			</div>
+			</div>
+
+		</div>
+		<!--==================================================
+				E N D   O F WATCHES AND JEWERLY
+		===================================================-->
+
+
+
+		<!--==================================================
+				S T A R T   O F CAMERAS
+		===================================================-->
+		<div data-role="page" id="pgcameras" data-theme="b">
+
+			<div data-role="header" data-position="fixed" >
+				<h1><img src="css/logo.png" id="logo"></h1>
+				<a href="#pageIndex" data-role="button" data-iconpos="notext" data-inline="true">
+				<span class="fa fa-backward"></span></a>
+			</div>
+
+			<div data-role="content">
+				<center><h3>Cameras</h3></center>
+				<div id="divcameras"></div>
+				
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<h1> </h1>
+				</div>
+
+			</div>
+		</div>
+		<!--==================================================
+				E N D   O F CAMERAS
+		===================================================-->
+
+
+
+		<!--==================================================
+				S T A R T   O F CLOTHING
+		===================================================-->
+		<div data-role="page" id="pgclothing" data-theme="b">
+
+			<div data-role="header" data-position="fixed" >
+				<h1><img src="css/logo.png" id="logo"></h1>
+				<a href="#pageIndex" data-role="button" data-iconpos="notext" data-inline="true">
+				<span class="fa fa-backward"></span></a>
+			</div>
+
+			<div data-role="content">
+				<center><h3>Clothings</h3></center>
+				<div id="divclothing"></div>
+				
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<h1> </h1>
+			</div>
+			</div>
+
+		</div>
+		<!--==================================================
+				E N D   O F CLOTHING
+		===================================================-->
+
+
+
+		<!--==================================================
+				S T A R T   O F BOOKS
+		===================================================-->
+		<div data-role="page" id="pgbooks" data-theme="b">
+
+			<div data-role="header" data-position="fixed" >
+				<h1><img src="css/logo.png" id="logo"></h1>
+				<a href="#pageIndex" data-role="button" data-iconpos="notext" data-inline="true">
+				<span class="fa fa-backward"></span></a>
+			</div>
+
+			<div data-role="content">
+				<center><h3>Books</h3></center>
+				<div id="divbooks"></div>
+				
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<h1> </h1>
+			</div>
+			</div>
+
+		</div>
+		<!--==================================================
+				E N D   O F BOOKS
+		===================================================-->
+
+
+
+		<!--==================================================
+				S T A R T   O F FOODS
+		===================================================-->
+		<div data-role="page" id="pgfoods" data-theme="b">
+
+			<div data-role="header" data-position="fixed" >
+				<h1><img src="css/logo.png" id="logo"></h1>
+				<a href="#pageIndex" data-role="button" data-iconpos="notext" data-inline="true">
+				<span class="fa fa-backward"></span></a>
+			</div>
+
+			<div data-role="content">
+				<center><h3>Foods</h3></center>
+				<div id="divfoods"></div>
+				
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<h1> </h1>
+			</div>
+			</div>
+
+		</div>
+		<!--==================================================
+				E N D   O F FOODS
+		===================================================-->
+
+
+
+		<!--==================================================
+				S T A R T   O F OTHERS
+		===================================================-->
+		<div data-role="page" id="pgothers" data-theme="b">
+
+			<div data-role="header" data-position="fixed" >
+				<h1><img src="css/logo.png" id="logo"></h1>
+				<a href="#pageIndex" data-role="button" data-iconpos="notext" data-inline="true">
+				<span class="fa fa-backward"></span></a>
+			</div>
+
+			<div data-role="content">
+				<center><h3>Others</h3></center>
+				<div id="divothers"></div>
+				
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<h1> </h1>
+			</div>
+			</div>
+
+		</div>
+		<!--==================================================
+				E N D   O F OTHERS
+		===================================================-->
+
+
+		<!--===========================================================================================
+							E N D   O F   C A T E G O R Y   P A G E    S E C T I O N
+		=========================================================================================== -->
+
+		<!-- ================================== Start of Item Page ===============================-->
+				<script>
+				function buyitem(best){
+					$.ajax({
+						type : 'POST',
+						url : 'http://bayansell.esy.es/bayansell/insertsold.php',
+						data : {
+							sql : "INSERT INTO 	tbl_sold (fld_user, fld_post_id) SELECT fld_user, fld_post_id,  FROM tbl_suggest WHERE fld_post_id="+localStorage.getItem('post_id')
+						},
+						dataType : 'html',
+						success : function (ace){
+							if(ace){
+								alert("Bought");
+							}
+						}
+					});
+				}
+
+				function seepost(a){
+					$.ajax({
+						type : 'POST',
+						url : 'http://bayansell.esy.es/bayansell/cmodel.php',
+						data : {
+							sql : "SELECT * FROM db_product WHERE fld_id = '" + a + "';", 
+						},
+						dataType : 'html',
+						success : function(eliza){
+							if(eliza){
+								$("#divScript").append(eliza);
+								$("#mdlimage").attr('src',image);
+								$("#mdlname").html("Description : " + name);
+								$("#mdlcondition").html("Condition : " + condition);
+								$("#mdluser").html("Posted By : " + user);
+								localStorage.setItem('bas_user',user);
+								localStorage.setItem('post_id',a);
+							}
+						}
+					});		
+					$("#txtPostId").hide();
+					$("#btnSuggestSave").click(function(data){
+						var a = localStorage.getItem('bas_user');
+						var b = localStorage.getItem('localUser');
+						var c = localStorage.getItem('post_id');
+						var form = $('#frmSuggest').serialize();
+
+						if(a==b){
+							alert("Cannot suggest price. Youre the one who posted that item!");
+						}
+						else{
+							$.ajax({
+								type : 'POST',
+								url : 'http://bayansell.esy.es/bayansell/suggest.php',
+								data: form + "&user="+b+"&postId="+c,
+								dataType : 'html',
+								success : function (elizaloves){
+									if (elizaloves){
+										alert("commended");
+										location.href = "#pageIndex";
+									}
+								}
+							});
+						}
+					});
+				}
+
+				function suggestuser(){
+					document.getElementById('suggestUser').value = localStorage.getItem('localUser');
+					document.getElementById('txtPostId').value = localStorage.getItem('post_id');
+				}
+
+
+				</script>
+				<div id="divScript">
+
+				</div>
+			</div>
+		<!-- ====================================== End of Item page ======================================-->
+
+		<!-- =====================================CONTENT MODAL ===========================================-->
+		<div data-role="page" id="mdlContent">
+			<div data-role="header">
+				<h1>Content!</h1>
+			</div>
+			<style>
+				#mdlimage{
+					width : 100%;
+					height : 100%;
+				}
+			</style>
+			<div data-role="content">
+				<center><img id="mdlimage"></img></center><hr>
+				<h3 id="mdlname">Description : </h3>
+				<h3 id="mdlcondition">Condition: </h3>
+				<h3 id="mdluser">Posted By:</h3>
+				<a data-role="button" href="#mdlAdd" id="btnSuggest" onclick="suggestuser()" data-rel="dialog">Suggest Price</a>
+				<a data-role="button" href="#mdlView" id="mdlFilterView" data-rel="dialog">View Prices</a>
+				<a data-role="button" href="#mdlComment" data-rel="dialog" id="btnCom">Comment</a>
+			</div>
+		</div>
+
+<!-- =====================================CONTENT MODAL ===========================================-->
+		<div data-role="page" id="mdlAdd">
+			<div data-role="header">
+				<h1>Suggest</h1>
+			</div>
+			<div data-role="content">
+				<form id="frmSuggest">
+					<input type="text" id="txtPostId" name="txtSuggestPost"/>
+					<input type="text" placeholder="User" name="txtSuggestUser" readonly id="suggestUser"/>
+					<input type="number" max="99999" id="suggestPrice" name="txtSuggestPrice" placeholder="Suggested Price"/>
+					<input type="text" placeholder="Notes" id="suggestNotes" name="txtSuggestNotes"/>	
+				</form>
+				<center>
+					<button id="btnSuggestSave">Submit</button>
+				</center>	
+			</div> 
+		</div>
+
+<!-- =====================================CONTENT MODAL ===========================================-->
+		<div data-role="page" id="mdlView">
+			<div data-role="header">
+				<h1>List of Prices</h1>
+			</div>
+
+			<div data-role="content">
+				<div id="divView"></div>
+				
+			</div>
+		</div>
+
+
+		<script>
+				$(document).ready(function(){
+					$("#mdlFilterView").click(function(){
+						var postId = localStorage.getItem('post_id');
+						$.ajax({
+							type : 'POST',
+							url:'http://bayansell.esy.es/bayansell/viewSuggest.php',
+							dataType: 'html',
+							data:{
+								sql : "SELECT * FROM tbl_suggest WHERE fld_post_id = '" +postId+ "'"
+							},
+							success:function(iloveyoubest){
+								if(iloveyoubest){
+									$("#divView").html("");
+									$('#divView').html(iloveyoubest);
+								}
+							}
+						});
+					});
+				});
+				</script>
+
+
+		<!--=============================================================
+				S T A R T   O F   C O M M E N T   M O D A L
+		==============================================================-->
+		<div data-role="page" id="mdlComment">
+			<div data-role="header">
+				<h1>Comment</h1>
+			</div>
+
+			<div data-role="content">
+				<div id="divComment"></div>
+				<textarea id="txtComment" name="txtComment"></textarea>
+				<button id="btnComment">Comment</button>
+
+			<script>
+				$(document).ready(function(){
+					var com = localStorage.getItem('post_id');
+					$('#btnCom').click(function(){
+						$.ajax({
+						type: 'GET',
+						url:'http://bayansell.esy.es/bayansell/comment.php',
+						dataType:'html',
+						data:"com="+com,
+						success: function(data){
+							if(data){
+								$('#divComment').html(data);
+							}
+						}
+					});
+
+					});
+					
+
+					$('#btnComment').click(function(){
+						var name = localStorage.getItem('localUser');
+						var post = localStorage.getItem('post_id');
+						var comment = $('#txtComment').val();
+			            $.ajax({
+			                url: "http://bayansell.esy.es/bayansell/addComment.php",
+			                type: "POST",
+			                data:"username="+name+"&usercom="+comment+"&postId="+post,
+			                success: function(data){
+			                	if(data){
+			                		location.href = 'index.html#mdlComment';
+			                		
+			                		$.ajax({
+									type: 'GET',
+									url:'http://bayansell.esy.es/bayansell/comment.php',
+									dataType:'html',
+									data:"com="+com,
+									success: function(data){
+										if(data){
+											$('#divComment').html(data);
+										}
+									}
+									});
+
+			                	}
+			                }
+							});
+						});
+					});
+			</script>
+			</div>
+		</div>
+		<!--=============================================================
+				E N D   O F   C O M M E N T   M O D A L
+		==============================================================-->
+
+		<script>
+			function seeSell(b){
+				$.ajax({
+					type : 'POST',
+					url : 'http://bayansell.esy.es/bayansell/cmodel.php',
+					data : {
+					sql : "SELECT * FROM db_product WHERE fld_id = '" + b + "';", 
+						},
+					dataType : 'html',
+					success : function(eliza){
+						if(eliza){
+							$("#divSellView").append(eliza);
+							$("#sellImage").attr('src',image);
+							$("#sellDesc").html("Description : " + name);
+							$("#sellCon").html("Condition : " + condition);
+							localStorage.setItem('post_id',b);
+							}
+						}
+					});		
+				}
+		</script>
+		<div id="divSellView">
+		</div>
+
+		<!-- =================================================
+					MODAL FOR VIEWING SELL ITEM
+		================================================== -->
+		<div data-role="page" id="mdlSellItem">
+			<div data-role="header">
+				<h1>Content!</h1>
+			</div>
+			<style>
+				#sellImage{
+					width : 100%;
+					height : 100%;
+				}
+			</style>
+			<div data-role="content">
+				<center><img id="sellImage"></img></center><hr>
+				<h3 id="sellDesc">Description : </h3>
+				<h3 id="sellCon">Condition: </h3>
+				<a data-role="button" id="ViewSuggested" href="#mdlViewSuggest" data-rel="dialog">View Suggested Prices</a>
+				<a data-role="button" href="#mdlViewComment" data-rel="dialog">View Comments</a>
+			</div>
+		</div>
+		<!-- =================================================
+					MODAL FOR VIEWING SELL ITEM
+		================================================== -->
+
+
+		<!-- =================================================
+					MODAL FOR VIEWING SUGGESTED PRICE
+		================================================== -->
+		<div data-role="page" id="mdlViewSuggest">
+			<div data-role="header">
+				<h1>List of Prices</h1>
+			</div>
+
+			<div data-role="content">
+				<div id="divViewSuggest"></div>
+				<script>
+				$(document).ready(function(){
+					$('#ViewSuggested').click(function(){
+					var postId = localStorage.getItem('post_id');
+
+					$.ajax({
+						type:'POST',
+						url:'http://bayansell.esy.es/bayansell/viewSuggest.php',
+						dataType: 'html',
+						data:{
+								sql : "SELECT * FROM tbl_suggest WHERE fld_post_id = '" +postId+ "'"
+							},
+						success:function(data){
+							if(data){
+								$("#divViewSuggest").html("");
+								$("#divViewSuggest").html(data);
+							}
+
+						}
+
+					});
+					});
+
+					});
+				</script>
+			</div>
+		</div>
+		<!-- =================================================
+					MODAL FOR VIEWING SUGGESSTED PRICE
+		================================================== -->
+
+		
+		<!-- =================================================
+					MODAL FOR VIEWING COMMENTS
+		================================================== -->
+		<div data-role="page" id="mdlViewComment">
+			<div data-role="header">
+				<h1>Comment</h1>
+			</div>
+
+			<div data-role="content">
+				<div id="divViewComment"></div>
+				<textarea id="txtViewComment" name="txtComment"></textarea>
+				<button id="btnViewComment">Comment</button>
+
+			<script>
+				$(document).ready(function(){
+					var com = localStorage.getItem('post_id');
+						$.ajax({
+						type: 'GET',
+						url:'http://bayansell.esy.es/bayansell/comment.php',
+						dataType:'html',
+						data:{
+							sql:"SELECT * FROM fld_comment WHERE fld_productId = '"+com+"'"
+						},
+						success: function(data){
+							if(data){
+								$('#divViewComment').html(data);
+							}
+						}
+
+					});
+					
+
+					$('#btnViewComment').click(function(){
+						var name = localStorage.getItem('localUser');
+						var post = localStorage.getItem('post_id');
+						var comment = $('#txtViewComment').val();
+			            $.ajax({
+			                url: "http://bayansell.esy.es/bayansell/addComment.php",
+			                type: "POST",
+			                data:"username="+name+"&usercom="+comment+"&postId="+post,
+			                success: function(data){
+			                	if(data){
+			                		location.href = 'index.html#mdlViewComment';
+			                		
+			                		$.ajax({
+									type: 'GET',
+									url:'http://bayansell.esy.es/bayansell/comment.php',
+									dataType:'html',
+									data:{
+										sql:"SELECT * FROM fld_comment WHERE fld_productId = '"+com+"'"
+									},
+									success: function(data){
+										if(data){
+											$('#divViewComment').html(data);
+										}
+									}
+									});
+
+			                	}
+			                }
+						});
+						});
+					});
+			</script>
+			</div>
+		</div>
+
+		<!-- =================================================
+					MODAL FOR VIEWING COMMENTS
+		================================================== -->
+
+
+
+		<script>
+        $(function(){
+            $('#UserRating').rating();
+        });
+    	</script>
+
+    	<script>
+    	$(document).ready(function(){
+    	/* ===================================================== 
+					START OF FUNCTION FOR IMAGE SIGN UP 
+			====================================================== */
+			$(function(){
+				$('#image').change(function(){
+					var read = new FileReader();
+					read.onload = function(i){
+						$('#itempreview').attr("style", "height:100px; width:100px");
+						$('#itempreview').attr('src', i.target.result);
+
+					}
+					read.readAsDataURL(this.files[0]);
+
+				})
+			});
+
+			/* ===================================================== 
+					END OF FUNCTION FOR IMAGE SIGN UP 
+			====================================================== */
+
+
+			/* ===================================================== 
+					START OF FUNCTION FOR FORM SIGN UP  
+			====================================================== */
+			$("#frmMobile").on('submit',(function(i) {	
+				var name = localStorage.getItem('localUser');
+				$('#para').val(name);	
+
+	            i.preventDefault();
+	            $.ajax({
+	                url: "http://bayansell.esy.es/bayansell/additem.php",
+	                type: "POST",
+	                data:  new FormData(this),
+	                contentType: false,
+	                cache: false,
+	                processData:false,
+	                success: function(data){
+	                	if(data){
+								alert("You have successfully add your item.");
+								location.href = '#pageIndex';
+								var category = $('#optCategory').val();
+
+								if(category == 'Mobile Phone & Tablets')
+								{
+									$.ajax({
+									type: 'GET',
+									url:'http://bayansell.esy.es/bayansell/mobile&tablet.php',
+									dataType:'html',
+									data: {},
+									success: function(data){
+										if(data){
+											$('#divItem').html(data);
+										}
+									}
+								});
+								}
+
+								else if(category == 'Computers & Laptops'){
+									$.ajax({
+										type: 'GET',
+										url:'http://bayansell.esy.es/bayansell/computer&laptop.php',
+										dataType:'html',
+										data: {},
+										success: function(data){
+											if(data){
+												$('#divComLap').html(data);
+											}
+										}
+									});
+
+								}
+
+								else if(category == 'Shoes & Bags'){
+									$.ajax({
+										type: 'GET',
+										url:'http://bayansell.esy.es/bayansell/shoes&bags.php',
+										dataType:'html',
+										data: {},
+										success: function(data){
+											if(data){
+												$('#divShoes').html(data);
+											}
+										}
+									});
+
+								}
+
+								else if(category == 'Appliances'){
+									$.ajax({
+										type: 'GET',
+										url:'http://bayansell.esy.es/bayansell/appliances.php',
+										dataType:'html',
+										data: {},
+										success: function(data){
+											if(data){
+												$('#divAppliances').html(data);
+											}
+										}
+									});
+
+								}
+
+								else if(category == 'Watches & Jewerly'){
+									$.ajax({
+										type: 'GET',
+										url:'http://bayansell.esy.es/bayansell/watches.php',
+										dataType:'html',
+										data: {},
+										success: function(data){
+											if(data){
+												$('#divwatches').html(data);
+											}
+										}
+									});
+
+								}
+
+								else if(category == 'Cameras'){
+									$.ajax({
+										type: 'GET',
+										url:'http://bayansell.esy.es/bayansell/cameras.php',
+										dataType:'html',
+										data: {},
+										success: function(data){
+											if(data){
+												$('#divcameras').html(data);
+											}
+										}
+									});
+
+								}
+
+								else if(category == 'Clothing'){
+									$.ajax({
+										type: 'GET',
+										url:'http://bayansell.esy.es/bayansell/clothing.php',
+										dataType:'html',
+										data: {},
+										success: function(data){
+											if(data){
+												$('#divclothing').html(data);
+											}
+										}
+									});
+
+								}
+
+								else if(category == 'Books'){
+									$.ajax({
+										type: 'GET',
+										url:'http://bayansell.esy.es/bayansell/books.php',
+										dataType:'html',
+										data: {},
+										success: function(data){
+											if(data){
+												$('#divbooks').html(data);
+											}
+										}
+									});
+
+								}
+
+								else if(category == 'Foods'){
+									$.ajax({
+										type: 'GET',
+										url:'http://bayansell.esy.es/bayansell/foods.php',
+										dataType:'html',
+										data: {},
+										success: function(data){
+											if(data){
+												$('#divfoods').html(data);
+											}
+										}
+									});
+
+								}
+
+								else if(category == 'Others'){
+									$.ajax({
+										type: 'GET',
+										url:'http://bayansell.esy.es/bayansell/others.php',
+										dataType:'html',
+										data: {},
+										success: function(data){
+											if(data){
+												$('#divothers').html(data);
+											}
+										}
+									});
+
+								}
+
+								
+							}
+									
+						}           
+	           });
+	            
+				
+	        }));
+
+		});
+
+
+    	</script>
+
+
+
+
+	</body>
+
+</html>
+
